@@ -1,0 +1,185 @@
+body {
+    background: black;
+    color: #00ff00;
+    font-family: monospace;
+    margin: 0;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+header {
+    padding: 0.6rem;
+    border-bottom: 1px solid #00ff00;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+main {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: calc(100vh - 3rem);
+    /* minus header height */
+}
+
+footer {
+    position: fixed;
+    background: black;
+    width: 100%;
+    bottom: 0;
+    font-size: 0.75rem;
+}
+
+footer p {
+    padding-left: 0.75rem;
+}
+
+/* nav */
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 1rem;
+    position: relative;
+}
+
+#nav-toggle {
+    display: none;
+}
+
+.dropdown-menu {
+    display: none;
+    list-style: none;
+    padding: 0.3rem;
+    margin: 0;
+    background: black;
+    border: 1px solid #00ff00;
+    position: absolute;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+/* hero */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #00ff00;
+    margin-top: 0.6rem;
+    transition-property: background-color, color, border-color;
+    transition-duration: 0.3s;
+    transition-delay: 0s, 0.05s, 0.1s;
+}
+
+.btn:hover {
+    background: #00ff00;
+    color: black;
+}
+
+/* terminal */
+
+.terminal {
+    border: 1px solid #00ff00;
+    padding: 1rem;
+    width: 90%;
+    max-width: 60rem;
+    margin: 2rem auto;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.terminal p:last-child::after {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 1rem;
+    background: #00ff00;
+    margin-left: 0.2rem;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1);
+    vertical-align: -0.25rem;
+}
+
+/* mobile menu */
+
+.menu-toggle {
+    display: none;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .menu {
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: black;
+        height: 100vh;
+        width: 12rem;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        border-left: 1px solid #00ff00;
+        transition-property: right;
+        transition-duration: 0.3s;
+    }
+
+    #nav-toggle {
+        display: none;
+    }
+
+    #nav-toggle:checked+.menu-toggle+.menu {
+        right: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    .dropdown-menu {
+        display: block;
+        position: static;
+        border: none;
+        padding-left: 1rem;
+    }
+}

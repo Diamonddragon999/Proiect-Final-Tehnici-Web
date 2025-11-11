@@ -1,0 +1,200 @@
+body {
+    background: #000000;
+    color: #00ff00;
+    font-family: monospace;
+    margin: 0;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #00ff00;
+    background: #050505;
+}
+
+.top-left,
+.top-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo {
+    font-weight: bold;
+}
+
+.status-pill {
+    border: 1px solid #00ff00;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.8rem;
+}
+
+.hint {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+kbd {
+    border: 1px solid #00ff00;
+    padding: 0 0.25rem;
+}
+
+.back-link {
+    /*exit button */
+    color: #00ff00;
+    text-decoration: none;
+    border: 1px solid #00ff00;
+    padding: 0.15rem 0.5rem;
+}
+
+.back-link:hover {
+    background: #00ff00;
+    color: #000000;
+}
+
+.cli-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    min-height: calc(100vh - 70px);
+}
+
+.cli-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.screen {
+    border: 1px solid #00ff00;
+    background: #020202;
+    padding: 1rem;
+    min-height: 50vh;
+    max-height: 70vh;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+/* pt fiecare linie */
+
+.screen p {
+    margin: 0.2rem 0;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #00ff00;
+    background: #050505;
+}
+
+.prompt {
+    min-width: auto;
+    margin-right: 0.3rem;
+}
+
+.cmdline {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 1rem;
+    caret-color: #00ff00;
+}
+
+.cli-sidebar {
+    border: 1px solid #00ff00;
+    padding: 0.7rem;
+    background: #050505;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.cli-sidebar h2 {
+    margin: 0.2rem 0;
+    font-size: 0.95rem;
+}
+
+.box {
+    border: 1px solid #00ff00;
+    padding: 0.4rem 0.5rem;
+}
+
+.cmd-list {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.cmd-list li {
+    margin-bottom: 0.25rem;
+}
+
+/* footer */
+
+.cli-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    background: #050505;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* MOBILE GO BRRR */
+
+@media (max-width: 800px) {
+    .cli-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .cli-sidebar {
+        order: -1;
+        /* sidebar sus pe telefon, why not */
+    }
+
+    .screen {
+        min-height: 45vh;
+        max-height: 60vh;
+    }
+
+    .prompt {
+        min-width: 8.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hint {
+        display: none;
+    }
+}
+/* thanks https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}

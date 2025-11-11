@@ -1,0 +1,228 @@
+body {
+    background: black;
+    color: #00ff00;
+    font-family: monospace;
+    margin: 0;
+}
+
+header {
+    padding: 0.6rem;
+    border-bottom: 1px solid #00ff00;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+main {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: calc(100vh - 3rem);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    background: black;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-right: 1rem;
+    position: relative;
+}
+
+a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+/* dropdown clasic */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    border: 1px solid #00ff00;
+    list-style-type: none;
+    padding: 0.3rem;
+    background: black;
+    position: absolute;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    /* nu complic, hover merge la pc */
+}
+
+.menu-toggle {
+    display: none;
+    /* default hidden, doar pe mobil il aratam */
+    background: transparent;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #00ff00;
+    margin-top: 0.6rem;
+    transition-property: background-color, color, border-color;
+    transition-duration: 0.3s;
+    transition-delay: 0s, 0.05s, 0.1s;
+}
+
+
+.btn:hover {
+    background: #00ff00;
+    color: black;
+}
+
+/* fake terminal box */
+.terminal {
+    border: 1px solid #00ff00;
+    width: 90%;
+    max-width: 60rem;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* blinking cursor entry level */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.terminal p:last-child::after {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 1rem;
+    background: #00ff00;
+    vertical-align: -0.2rem;
+    margin-left: .3rem;
+    animation: blink 1s steps(1) infinite;
+}
+
+/* popup with commands */
+.cmd-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(2px);
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.cmd-popup-content {
+    border: 1px solid #00ff00;
+    background: #000;
+    padding: 1rem;
+    width: 400px;
+    max-width: 85%;
+}
+
+.close-btn {
+    float: right;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border: 1px solid #00ff00;
+}
+
+.close-btn:hover {
+    background: #00ff00;
+    color: #000;
+}
+
+#cmd-popup-text {
+    margin-top: 1rem;
+    white-space: pre-wrap;
+}
+
+
+/* MOBILE GO BRRR */
+@media (max-width:600px) {
+    .menu-toggle {
+        display: block;
+        /* apare pe mobil */
+        margin-left: auto;
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 12rem;
+        height: 100vh;
+        background: black;
+        border-left: 1px solid #00ff00;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        transition: right .3s;
+    }
+
+    .menu.open {
+        right: 0;
+    }
+
+    /* show dropdown always cauza mobile e ciudat */
+    .dropdown-menu {
+        display: block;
+        position: static;
+        list-style-type: none;
+        border: none;
+        padding-left: .7rem;
+    }
+
+    .terminal {
+        width: 95%;
+        margin-top: 1rem;
+    }
+
+    .terminal p {
+        font-size: .9rem;
+    }
+}
+
+/* thanks https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}

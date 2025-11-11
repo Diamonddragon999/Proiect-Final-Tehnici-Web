@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Ops Terminal</title>
+    <link rel="stylesheet" href="cli.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="top-left">
+        <span class="logo">~/terminal</span>
+        <span class="status-pill" id="session-pill">anonymous</span>
+    </div>
+    <div class="top-right">
+        <span class="hint">
+            type <kbd>help</kbd> · <kbd>↑</kbd>/<kbd>↓</kbd> history · <kbd>Tab</kbd> autocomplete
+        </span>
+        <a href="index.html" class="back-link">exit</a>
+    </div>
+</header>
+
+<main class="cli-layout">
+    <section class="cli-main">
+        <div id="screen" class="screen">
+            <!-- comenzile -->
+        </div>
+
+        <div class="input-line">
+            <span class="prompt" id="prompt">anonymous@cli:~$</span>
+            <input
+                id="cmdline"
+                class="cmdline"
+                autocomplete="off"
+                spellcheck="false"
+            >
+        </div>
+    </section>
+
+    <aside class="cli-sidebar">
+        <h2>Active Session</h2>
+        <div class="box">
+            <p>user: <span id="side-user">anonymous</span></p>
+            <p>commands: <span id="side-count">0</span></p>
+        </div>
+
+        <h2>Common commands</h2>
+        <ul class="cmd-list">
+            <li><code>help</code> - list commands</li>
+            <li><code>clear</code> - clear screen</li>
+            <li><code>echo text</code> - print text</li>
+            <li><code>user nume</code> - change user</li>
+            <li><code>man cmd</code> - small manual</li>
+            <li><code>history</code> - show history</li>
+        </ul>
+    </aside>
+</main>
+
+<footer class="cli-footer">
+    © 2025 darius cimbru · Cyber Ops Terminal
+</footer>
+
+<script src="cli.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Cyber Terminal</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Ops Terminal</title>
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    
-<header>
-    <nav class="nav">
-        <div class="logo">~/project</div>
 
-        <input type="checkbox" id="nav-toggle"> <!-- for some reason pe mobil nu merge :hover -->
-        <label for="nav-toggle" class="menu-toggle">menu ▼</label>
+    <header>
+        <nav aria-label="main navigation" class="nav">
+            <div class="logo">~/project</div>
+            <button class="menu-toggle">menu ▼</button>
 
-        <ul class="menu">
-            <li><a href="#">about</a></li>
-            <li class="dropdown">
-                <a href="#">commands ▼</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">ls</a></li>
-                    <li><a href="#">cd</a></li>
-                    <li><a href="#">whoami</a></li>
-                </ul>
-            </li>
-            <li><a href="cli.html">open cli</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
-    <section class="hero">
-        <h1>The Cybersecurity Terminal</h1>
-        <a class="btn" href="cli.html">launch terminal</a>
-    </section>
-
-    <section class="preview">
-        <div class="terminal">
-            <p>user@host:~$ echo "hello"</p>
-            <p>hello</p>
-            <p>user@host:~$</p>
+            <ul class="menu">
+                <li><a href="#">about</a></li>
+                <li class="dropdown">
+                    <a href="#">commands</a>
+                    <ul class="dropdown-menu" id="cmd-menu"></ul>
+                </li>
+                <li><a href="cli.html">open cli</a></li>
+            </ul>
+        </nav>
+        <div id="cmd-popup" class="cmd-popup">
+            <div class="cmd-popup-content">
+                <span id="cmd-popup-close" class="close-btn">X</span>
+                <pre id="cmd-popup-text"></pre>
+            </div>
         </div>
-    </section>
-</main>
+    </header>
 
-<footer>
-    <p>© 2025 darius cimbru</p>
-</footer>
+    <main>
+        <section class="hero">
+            <h1>The CyberOps Terminal</h1>
+            <a class="btn" href="cli.html">launch terminal</a>
+        </section>
 
-<script src="script.js"></script>
+        <section class="preview">
+            <div class="terminal">
+                <p>user@host:~$ echo "hello"</p>
+                <p>hello</p>
+                <p>user@host:~$</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 darius cimbru</p>
+    </footer>
+
+    <script src="cli.js"></script>
+    <script src="index.js"></script>
+
 </body>
+
 </html>

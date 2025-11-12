@@ -6,6 +6,18 @@ document.querySelectorAll(".menu a").forEach(link=>{
   link.addEventListener("click",()=>menu.classList.remove("open"));
 });
 
+// close menu when tapping outside (mobile)
+document.addEventListener("click", (e) => {
+  const navBox = document.querySelector(".menu");
+  const toggleBtn = document.querySelector(".menu-toggle");
+
+  // daca meniul e deschis si ai apasat in afara meniului si butonului
+  if (menu.classList.contains("open") && !navBox.contains(e.target) && e.target !== toggleBtn) {
+    menu.classList.remove("open");
+  }
+});
+
+
 // popup
 var popup = document.getElementById("cmd-popup");
 var popup_txt = document.getElementById("cmd-popup-text");

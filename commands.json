@@ -1,0 +1,10 @@
+[
+  {"name":"help","desc":"show commands","man":"help - list all commands"},
+  {"name":"clear","desc":"clear screen","man":"clear - wipes the terminal"},
+  {"name":"echo","desc":"print text","man":"echo <text> - prints text"},
+  {"name":"user","desc":"change user","man":"user <name> - change prompt user"},
+  {"name":"man","desc":"manual","man":"man <cmd> - shows help for a command"},
+  {"name":"history","desc":"show history","man":"history - show typed commands"},
+  {"name":"matrix","desc":"matrix effect","man":"matrix - press ESC to exit"},
+  {"name":"animals","desc":"(root) show animal","man":"animals - prints a random ascii animal"}
+]

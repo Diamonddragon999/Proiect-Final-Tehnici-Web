@@ -1,6 +1,11 @@
+:root {
+    --verdehacker: #00ff00;
+}
+
+
 body {
     background: #000000;
-    color: #00ff00;
+    color: var(--verdehacker);
     font-family: monospace;
     margin: 0;
 }
@@ -10,7 +15,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
-    border-bottom: 1px solid #00ff00;
+    border-bottom: 1px solid var(--verdehacker);
     background: #050505;
 }
 
@@ -26,7 +31,7 @@ body {
 }
 
 .status-pill {
-    border: 1px solid #00ff00;
+    border: 1px solid var(--verdehacker);
     padding: 0.1rem 0.4rem;
     font-size: 0.8rem;
 }
@@ -37,20 +42,20 @@ body {
 }
 
 kbd {
-    border: 1px solid #00ff00;
+    border: 1px solid var(--verdehacker);
     padding: 0 0.25rem;
 }
 
 .back-link {
     /*exit button */
-    color: #00ff00;
+    color: var(--verdehacker);
     text-decoration: none;
-    border: 1px solid #00ff00;
+    border: 1px solid var(--verdehacker);
     padding: 0.15rem 0.5rem;
 }
 
 .back-link:hover {
-    background: #00ff00;
+    background: var(--verdehacker);
     color: #000000;
 }
 
@@ -69,7 +74,7 @@ kbd {
 }
 
 .screen {
-    border: 1px solid #00ff00;
+    border: 1px solid var(--verdehacker);
     background: #020202;
     padding: 1rem;
     min-height: 50vh;
@@ -89,7 +94,7 @@ kbd {
     display: flex;
     align-items: center;
     padding: 0.6rem 0.8rem;
-    border: 1px solid #00ff00;
+    border: 1px solid var(--verdehacker);
     background: #050505;
 }
 
@@ -103,14 +108,14 @@ kbd {
     background: transparent;
     border: none;
     outline: none;
-    color: #00ff00;
+    color: var(--verdehacker);
     font-family: monospace;
     font-size: 1rem;
-    caret-color: #00ff00;
+    caret-color: var(--verdehacker);
 }
 
 .cli-sidebar {
-    border: 1px solid #00ff00;
+    border: 1px solid var(--verdehacker);
     padding: 0.7rem;
     background: #050505;
     font-size: 0.85rem;
@@ -125,7 +130,7 @@ kbd {
 }
 
 .box {
-    border: 1px solid #00ff00;
+    border: 1px solid var(--verdehacker);
     padding: 0.4rem 0.5rem;
 }
 
@@ -147,20 +152,6 @@ kbd {
     padding: 0.3rem 0.6rem;
     font-size: 0.75rem;
     background: #050505;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }
 
 /* MOBILE */
@@ -189,12 +180,140 @@ kbd {
         display: none;
     }
 }
+
 /* thanks https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */
 html {
     overflow: scroll;
     overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {
     width: 0;
     background: transparent;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+}
+
+.modal-box {
+    width: 520px;
+    max-width: 92vw;
+    border: 1px solid var(--verdehacker);
+    background: #050505;
+    padding: 0.8rem;
+}
+
+.modal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.mini-btn {
+    background: transparent;
+    border: 1px solid var(--verdehacker);
+    color: var(--verdehacker);
+    padding: 0.15rem 0.55rem;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+.mini-btn:hover {
+    background: var(--verdehacker);
+    color: #000;
+}
+
+.vim {
+    border: 1px solid var(--verdehacker);
+    background: #000;
+}
+
+.vim-top {
+    border-bottom: 1px solid var(--verdehacker);
+    padding: 0.35rem 0.5rem;
+    font-size: 0.85rem;
+}
+
+.vim-body {
+    margin: 0;
+    padding: 0.7rem 0.8rem;
+    min-height: 110px;
+}
+
+.vim-cmdline {
+    border-top: 1px solid var(--verdehacker);
+    padding: 0.35rem 0.5rem;
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+}
+
+.vim-status {
+    border-top: 1px solid var(--verdehacker);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+
+.root-msg {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+}
+
+.animal {
+    white-space: pre;
+    margin: 0.5rem 0;
+    display: inline-block;
+    user-select: none;
+    cursor: pointer;
+    line-height: 1.1;
+}
+
+.vim-loading {
+    border: 1px solid var(--verdehacker);
+    background: #000;
+    padding: 1.2rem;
+    display: none;
+    flex-direction: column;   /* stack logo + bar */
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.vim-loading img {
+    height: 72px;
+    width: auto;
+    image-rendering: pixelated;
+}
+
+.vim-loading .bar {
+    width: 80%;
+    height: 10px;
+    border: 1px solid var(--verdehacker);
+    position: relative;
+}
+
+.vim-loading .fill {
+    height: 100%;
+    width: 0%;
+    background: var(--verdehacker);
+    animation: fillbar 2s linear forwards;
+}
+
+@keyframes fillbar {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
 }

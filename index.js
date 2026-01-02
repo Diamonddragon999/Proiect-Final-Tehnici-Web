@@ -28,21 +28,30 @@ popup.addEventListener("click", (e) => { //sesam inchide te cand apesi altundeva
 });
 
 
-if (window.cli_cmds) {
-    var box = document.getElementById("cmd-menu");
-    cli_cmds.forEach(function(c){
-        var li = document.createElement("li");
-        var a = document.createElement("a");
-        a.href = "#";
-        a.textContent = c.name;
-        a.addEventListener("click", function(){
-            popup.style.display = "flex";
-            popup_txt.textContent =
-                c.name + "\n\n" +
-                "desc: " + c.desc + "\n\n" +
-                "manual:\n" + c.man;
-        });
-        li.appendChild(a);
-        box.appendChild(li);
+function tryFillMenu() {
+  if (!window.cli_cmds || window.cli_cmds.length == 0) {
+    setTimeout(tryFillMenu, 60);
+    return;
+  }
+
+  var box = document.getElementById("cmd-menu");
+  box.innerHTML = "";
+
+  window.cli_cmds.forEach(function (c) {
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.href = "#";
+    a.textContent = c.name;
+    a.addEventListener("click", function () {
+      popup.style.display = "flex";
+      popup_txt.textContent =
+        c.name + "\n\n" +
+        "desc: " + c.desc + "\n\n" +
+        "manual:\n" + c.man;
     });
+    li.appendChild(a);
+    box.appendChild(li);
+  });
 }
+
+tryFillMenu();

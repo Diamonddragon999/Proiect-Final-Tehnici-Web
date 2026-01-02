@@ -6,5 +6,5 @@
   {"name":"man","desc":"manual","man":"man <cmd> - shows help for a command"},
   {"name":"history","desc":"show history","man":"history - show typed commands"},
   {"name":"matrix","desc":"matrix effect","man":"matrix - press ESC to exit"},
-  {"name":"animals","desc":"(root) show animal","man":"animals - prints a random ascii animal"}
+  {"name":"pets","desc":"(root) show pet","man":"pets - prints a random ascii pet"}
 ]

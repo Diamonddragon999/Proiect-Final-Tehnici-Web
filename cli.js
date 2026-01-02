@@ -136,20 +136,20 @@ function run_cmd(raw) {
     }
   } else if (cmd == "matrix") {
     run_matrix();
-  } else if (cmd == "animals") {
+  } else if (cmd == "pets") {
     if (!sess.isAdmin) {
       print_line("permission denied");
       return;
     }
 
-    if (!animal_list) {
-      load_animals(function () {
-        var pick = animal_list[Math.floor(Math.random() * animal_list.length)];
-        make_animal(pick);
+    if (!pet_list) {
+      load_pets(function () {
+        var pick = pet_list[Math.floor(Math.random() * pet_list.length)];
+        make_pet(pick);
       });
     } else {
-      var pick = animal_list[Math.floor(Math.random() * animal_list.length)];
-      make_animal(pick);
+      var pick = pet_list[Math.floor(Math.random() * pet_list.length)];
+      make_pet(pick);
     }
 
   } else {
@@ -258,20 +258,20 @@ function run_matrix() {
   });
 }
 
-var animal_list = null;
+var pet_list = null;
 
-function load_animals(cb) {
-  fetch("animale-claudia.txt")
+function load_pets(cb) {
+  fetch("pets-claudia.txt")
     .then((r) => r.text())
     .then((t) => {
-      animal_list = t
+      pet_list = t
         .split(/\n\s*\n\s*\n+/)
         .map((x) => x.replace(/\s+$/g, "")) // only remove trailing whitespace
         .filter((x) => x.length > 0);
       cb();
     })
     .catch(() => {
-      print_line("cant load animale-claudia.txt");
+      print_line("cant load pets-claudia.txt");
     });
 }
 
@@ -300,10 +300,10 @@ function heart(x, y) {
   }, 650);
 }
 
-function make_animal(txt) {
+function make_pet(txt) {
   var pre = document.createElement("pre");
   pre.textContent = txt;
-  pre.className = "animal";
+  pre.className = "pet";
   screen.appendChild(pre);
   screen.scrollTop = screen.scrollHeight;
 

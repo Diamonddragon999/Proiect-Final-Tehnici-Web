@@ -269,7 +269,7 @@ html {
     font-size: 0.85rem;
 }
 
-.animal {
+.pet {
     white-space: pre;
     margin: 0.5rem 0;
     display: inline-block;
@@ -283,7 +283,8 @@ html {
     background: #000;
     padding: 1.2rem;
     display: none;
-    flex-direction: column;   /* stack logo + bar */
+    flex-direction: column;
+    /* stack logo + bar */
     align-items: center;
     gap: 0.8rem;
 }
